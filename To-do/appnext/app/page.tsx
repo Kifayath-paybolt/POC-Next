@@ -57,7 +57,7 @@ export default function Home() {
             {tasks.map((task)=>
             (<li key={task.id}
             className={"flex-auto"}>
-              <span className = {"flex-1 cursor-pointer"}
+              <span className = {"flex-1 cursor-pointer ${task.completed ? 'line-through text-gray-500' : ''}"}
               onClick={()=>updateComplete(task.id)}>{task.text}</span>
               <button onClick={()=>removeTask(task.id)}
                 className="ml-4 text-red-500 hover:text-red-700">Remove</button>
