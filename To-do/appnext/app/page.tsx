@@ -1,10 +1,14 @@
+"use client";
+
 import { useState } from "react";
 
+interface Task{
+  text : string;
+  completed : boolean;
+}
+
 export default function Home() {
-  return (
-    <main>
-      <h1 className="text-center text-red-500">TO DO</h1>
-      const [tasks, setTasks] = useState<Task[]>([]);
+  const [tasks, setTasks] = useState<Task[]>([]);
       const [newTask, setNewTask] = useState<string>('');
       
       const addTask = () =>{
@@ -13,6 +17,9 @@ export default function Home() {
           setNewTask('');
         }
       };
+  return (
+    <main>
+      <h1 className="text-center text-red-500">TO DO</h1>
     </main>
   );
 }

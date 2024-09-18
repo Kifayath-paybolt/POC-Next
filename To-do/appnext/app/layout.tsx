@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-import Poppins from 'next/font/google'
-//Configure Poppins
-const poppins = Poppins({
-  subsets: ['latin'],
-  display: 'swap',
-})
+// import Poppins from 'next/font/google'
+// //Configure Poppins
+// const poppins = Poppins({
+//   subsets: ['latin'],
+//   display: 'swap',
+// })
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
