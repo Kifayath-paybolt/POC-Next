@@ -1,8 +1,11 @@
 "use client";
 
+import { link } from "fs";
 import { useState } from "react";
+import { text } from "stream/consumers";
 
 interface Task{
+  id : number;
   text : string;
   completed : boolean;
 }
@@ -12,21 +15,26 @@ export default function Home() {
   const [newTask, setNewTask] = useState<string>('');
 
   const addTask = () =>{
-    if (newTask.trim() !== ''){
-      setTasks([...tasks, {text  : newTask, completed: false}]);
-      setNewTask('');
+    if(newTask.trim() != ""){
+      const newTaskItem = {
+        id: Date.now(),
+        text: newTask,
+        completed: false
+      };
+      setTasks([...tasks, newTaskItem]);
+      setNewTask("")
     }
   };
 
-  const updateComplete = (index: number)=>{
-    const updatedTasks = tasks.map((task, i) =>
-      i == index ? {...task, completed: !task.completed} : task
+  const updateComplete = (id: number)=>{
+    const updatedTasks = tasks.map((task) =>
+    task.id ===id?{...task, completed: !task.completed}:task
   );
   setTasks(updatedTasks);
   };
 
-  const removeTask = (index : number) =>{
-    const updatedTasks = tasks.filter((_, i)=> i != index);
+  const removeTask = (id : number) =>{
+    const updatedTasks = tasks.filter((tasks)=> tasks.id != id);
     setTasks(updatedTasks);
   }
 
@@ -45,6 +53,17 @@ export default function Home() {
             onClick={addTask}
             className="ml-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Add</button>
           </div>
+          <ul className="space-y-2 mt-9">
+            {tasks.map((task)=>
+            (<li key={task.id}
+            className={"flex-auto"}>
+              <span className = {"flex-1 cursor-pointer"}
+              onClick={()=>updateComplete(task.id)}>{task.text}</span>
+              <button onClick={()=>removeTask(task.id)}
+                className="ml-4 text-red-500 hover:text-red-700">Remove</button>
+            </li>
+          ))}
+          </ul>
         </div>
       </div>
 
