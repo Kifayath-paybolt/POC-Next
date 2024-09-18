@@ -10,7 +10,7 @@ interface TaskListProps {
 
 const Tlist = ({tasks, updateComplete, removeTask} : TaskListProps) => {
     return(
-        <ul className="space-y-2 mt-9">
+        <ul className="space-y-4 mt-5 max-w-xl mx-auto">
       {tasks.map((task) => (
         <Titem key={task.id} task={task} updateComplete={updateComplete} removeTask={removeTask} />
       ))}

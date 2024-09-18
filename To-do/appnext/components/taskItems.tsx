@@ -10,15 +10,19 @@ interface TaskItemProps {
 const Titem : React.FC<TaskItemProps> = ({task, updateComplete, removeTask}) =>{
     return(
         <li key={task.id}
-            className={`flex-auto w-full items-center p-2 rounded ${
-              task.completed ? 'bg-green-200' : 'bg-gray-200'
-            }`}
+            className={`flex items-center justify-between p-4 rounded-lg shadow-md transition duration-200 ${
+                task.completed ? "bg-green-100 border-green-400" : "bg-white border-gray-300"
+                } border-2 hover:shadow-lg`}
           >
-              <span className = {`flex-1 cursor-pointer ${task.completed ? 'line-through text-gray-500' : ""}`}
-              onClick={()=>updateComplete(task.id)}>{task.text}</span>
-              <button onClick={()=>removeTask(task.id)}
-                className="ml-4 text-red-500 hover:text-red-700">Remove</button>
-            </li>
+            <span className={`text-lg font-medium flex-1 cursor-pointer transition-colors ${
+            task.completed ? "line-through text-gray-500" : "text-gray-900"
+            }`}
+            onClick={()=>updateComplete(task.id)}>{task.text}</span>
+            <button onClick={()=>removeTask(task.id)}
+            className="ml-4 text-red-500 hover:text-red-700 transition-colors">
+                Remove
+                </button>
+        </li>
     );
 };
 

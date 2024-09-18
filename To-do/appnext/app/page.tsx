@@ -1,15 +1,12 @@
 "use client";
 
-import { link } from "fs";
 import { useState } from "react";
-import { text } from "stream/consumers";
 import Tlist from "@/components/tasklist";
 import Inp from "@/components/Input";
 import {Task} from  "../app/types";
 
 export default function Home() {
   const [tasks, setTasks] = useState<Task[]>([]);
-  const [newTask, setNewTask] = useState<string>('');
 
   const addTask = (text: string) => {
     const newTaskItem = {
@@ -33,9 +30,9 @@ export default function Home() {
   }
 
   return (
-    <main>
-      <div className="text-center my-5 flex flex-col gap-4">
-        <h1>TO DO APP</h1>
+    <main className="min-h-screen bg-gray-100 py-12">
+      <div className="max-w-2xl mx-auto p-20 bg-white rounded-lg shadow-lg">
+        <h1 className="text-3xl font-bold text-center mb-8 text-gray-800">TO DO APP</h1>
         <Inp addTask={addTask} />
         <Tlist tasks={tasks} updateComplete={updateComplete} removeTask={removeTask}/>
       </div>

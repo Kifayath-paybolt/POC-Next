@@ -14,15 +14,17 @@ const Inp: React.FC<inputProps> = ({addTask})=>{
         }
     }
     return(
-        <div className="mb-4 text-center my-5 mr-5 gap-64">
+        <div className="flex items-center justify-center gap-4 mt-8">
             <input type="text"
             value={newTask}
             onChange={(e) => setNewTask(e.target.value)}
-            className="border rounded px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="justify-center text-xl font-bold  mb-8 text-gray-800 bg-slate-500"
             placeholder="Enter new task"/>
             <button
             onClick={handleAddTask}
-            className="ml-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Add</button>
+            className="text-xl font-bold text-center mb-8 text-gray-800">
+                Add
+            </button>
           </div>
     )
 };
