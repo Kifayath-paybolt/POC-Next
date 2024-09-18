@@ -19,7 +19,7 @@ const Titem : React.FC<TaskItemProps> = ({task, updateComplete, removeTask}) =>{
             }`}
             onClick={()=>updateComplete(task.id)}>{task.text}</span>
             <button onClick={()=>removeTask(task.id)}
-            className="ml-4 text-red-500 hover:text-red-700 transition-colors">
+            className="ml-4 text-red-500 hover:text-red-700">
                 Remove
                 </button>
         </li>
