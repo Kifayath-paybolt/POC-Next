@@ -32,7 +32,22 @@ export default function Home() {
 
   return (
     <main>
-      <h1 className="text-center text-red-500">TO DO</h1>
+      <div>
+        <div>
+          <h1>TO DO APP</h1>
+          <div className="create">
+            <input type="text"
+            value={newTask}
+            onChange={(e) => setNewTask(e.target.value)}
+            className="border rounded px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            placeholder="Enter new task"/>
+            <button
+            onClick={addTask}
+            className="ml-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Add</button>
+          </div>
+        </div>
+      </div>
+
     </main>
   );
 }
